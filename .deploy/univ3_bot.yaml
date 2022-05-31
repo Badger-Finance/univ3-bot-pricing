@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: univ3-bot
+  labels:
+    app: univ3-bot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: univ3-bot
+  template:
+    metadata:
+      labels:
+        app: univ3-bot
+    spec:
+      containers:
+        - name: univ3-bot
+          image: IMAGE_NAME
+          imagePullPolicy: IfNotPresent
+          command: ["python", "src/discord_bot.py"]
+          env:
+            - name: LOG_LEVEL
+              value: 'info'
