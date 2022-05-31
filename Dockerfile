@@ -1,6 +1,6 @@
 FROM python:3.8
 
-ADD src/discord_bot.py /
+COPY . .
 ARG ALCHEMYAPI_TOKEN
 ARG BOT_TOKEN
 ARG GUILD_ID
