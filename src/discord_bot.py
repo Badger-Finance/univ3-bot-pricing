@@ -1,17 +1,14 @@
 import asyncio
+import os
 
 import discord
 from discord.ext import commands
 
 from pool_price_info import get_pool_btc_tick
 
-from dotenv import dotenv_values
-
-config = dotenv_values(".env")
-
 bot = commands.Bot(command_prefix=".")
-token = config["BOT_TOKEN"]
-guild_id = int(config["GUILD_ID"])
+token = os.getenv("BOT_TOKEN")
+guild_id = int(os.getenv("GUILD_ID"))
 
 
 async def send_update():

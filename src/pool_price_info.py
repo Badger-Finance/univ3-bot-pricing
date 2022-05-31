@@ -1,9 +1,9 @@
+import os
+
 import web3
 from abi.pool_univ3 import pool_abi
-from dotenv import dotenv_values
 
-config = dotenv_values(".env")
-alchemy_token = config["ALCHEMYAPI_TOKEN"]
+alchemy_token = os.getenv("ALCHEMYAPI_TOKEN")
 
 
 W3 = web3.Web3(
