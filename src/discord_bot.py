@@ -1,4 +1,5 @@
 import asyncio
+from datetime import datetime
 import os
 
 import discord
@@ -12,7 +13,13 @@ guild_id = int(os.getenv("GUILD_ID"))
 
 
 async def send_update():
+    ts = datetime.timestamp(datetime.now())
     nickname = get_pool_btc_tick()
+
+    # add prints for logging
+    print("price: ", nickname)
+    print("timestamp: ", int(ts))
+    
     activity_status = "UniV3 pool"
     await bot.get_guild(guild_id).me.edit(nick=nickname)
     await bot.change_presence(
